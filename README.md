@@ -62,3 +62,43 @@ sean
 |> Activities.delete
 ```
 
+## Activities
+stream_elixir provides two basic modules for working with activities.
+```elixir
+StreamElixir.Activity 		# Defines Activity struct and provides helper functions for creating Activity structs
+StreamElixir.Activities 	# Main methods for inserting, removing, updating, and retrieving activities
+```
+
+**StreamElixir.Activity**
+An activity must have three basic properties: an actor, a verb, and an object. These three properties are the MINIMUM amount of information needed to create an activity and add it to a feed. Below shows the creation of an activity with a struct as well as the provided helper methods.
+
+```elixir
+alias StreamElixir.Activity
+sean = Feed.get('user', 'sean')
+activity =	
+	sean
+	|> Activity.create 									# Initialize activity with sean as the actor
+	|> Activity.with_verb('add') 						# Add verb 'add'
+	|> Activity.with_object('picture:10') 				# Add object 'picture:10'
+	|> Activity.with_target('board:10') 				# Add target 'board:10'
+	|> Activity.with_time(Activity.now)					# Add time current UTC time string
+	|> Activity.with_foreign_id('picture:10') 			# Add foreign id 'picture:10'
+	|> Activity.with_custom_fields(%{message: "hello"})	# Add custom field 'message' with value "hello"
+	|> Activity.to(['notification:jessica']) 			# Add target to jessica's notification feed (see "Targeting")
+
+# The above pipeline is equivalent to the following Activity struct
+activity =
+	%Activity{
+		actor: sean,
+		verb: 'add',
+		object: 'picture:10',
+		target: 'board:10',
+		time: Base.now,
+		foreign_id: 'picture:10',
+		custom_fields: %{message: "hello"},
+		to: ['notification:jessica']
+	}
+```
+
+**StreamElixir.Activities**
+The activities module provides methods that will communicate with the API. The three fundamental methods it provides are: *add/1*, *delete/1*, *update/1*
