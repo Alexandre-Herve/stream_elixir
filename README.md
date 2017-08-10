@@ -77,7 +77,7 @@ alias StreamElixir.Activity
 sean = Feed.get('user', 'sean')
 activity =	
 	sean
-	|> Activity.create 				# Initialize activity with sean as the actor
+	|> Activity.create 					# Initialize activity with sean as the actor
 	|> Activity.with_verb('add') 				# Add verb 'add'
 	|> Activity.with_object('picture:10') 			# Add object 'picture:10'
 	|> Activity.with_target('board:10') 			# Add target 'board:10'
