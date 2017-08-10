@@ -77,14 +77,14 @@ alias StreamElixir.Activity
 sean = Feed.get('user', 'sean')
 activity =	
 	sean
-	|> Activity.create 									# Initialize activity with sean as the actor
-	|> Activity.with_verb('add') 						# Add verb 'add'
-	|> Activity.with_object('picture:10') 				# Add object 'picture:10'
-	|> Activity.with_target('board:10') 				# Add target 'board:10'
-	|> Activity.with_time(Activity.now)					# Add time current UTC time string
-	|> Activity.with_foreign_id('picture:10') 			# Add foreign id 'picture:10'
-	|> Activity.with_custom_fields(%{message: "hello"})	# Add custom field 'message' with value "hello"
-	|> Activity.to(['notification:jessica']) 			# Add target to jessica's notification feed (see "Targeting")
+	|> Activity.create 	# Initialize activity with sean as the actor
+	|> Activity.with_verb('add') 	# Add verb 'add'
+	|> Activity.with_object('picture:10') 	# Add object 'picture:10'
+	|> Activity.with_target('board:10') 	# Add target 'board:10'
+	|> Activity.with_time(Activity.now) 	# Add time current UTC time string
+	|> Activity.with_foreign_id('picture:10') 	# Add foreign id 'picture:10'
+	|> Activity.with_custom_fields(%{message: "hello"}) 	# Add custom field 'message' with value "hello"
+	|> Activity.to(['notification:jessica']) 	# Add target to jessica's notification feed (see "Targeting")
 
 # The above pipeline is equivalent to the following Activity struct
 activity =
