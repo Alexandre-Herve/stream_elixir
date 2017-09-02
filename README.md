@@ -55,6 +55,7 @@ next =
 	jack
 	|> Feed.with_limit(10)
 	|> Feed.after(timeline)
+	|> Feed.get
 
 # Delete an activity by foreign_id
 sean
@@ -62,11 +63,20 @@ sean
 |> Activities.delete
 ```
 
+## Feeds
+stream_elixir provides one module for working with feeds.
+```elixir
+StreamElixir.Feed 		# Main methods for creating, deleting, updating, and following feeds.
+```
+
+
+
+
 ## Activities
-stream_elixir provides two basic modules for working with activities.
+stream_elixir provides two modules for working with activities.
 ```elixir
 StreamElixir.Activity 		# Defines Activity struct and provides helper functions for creating Activity structs
-StreamElixir.Activities 	# Main methods for inserting, removing, updating, and retrieving activities
+StreamElixir.Activities 	# Main methods for inserting, removing, and updating activities
 ```
 
 **StreamElixir.Activity**  
@@ -103,9 +113,9 @@ activity =
 ```
 
 **StreamElixir.Activities**  
-The activities module provides methods that will communicate with the API. The methods it provides are:
+The activities module provides methods that will communicate with the API. These methods are:
 * *add/1*
 * *update/1*
 * *delete/1*
 
-## 
+*Note: Methods for retrieving activities are provided in the Feed module.*

@@ -27,12 +27,4 @@ defmodule StreamElixir.Mixfile do
     ]
   end
 
-  defp package do
-    [files: ~w(lib mix.exs README.md LICENSE VERSION),
-    maintainers: ["Devin Torres"],
-    licenses: ["CC0-1.0"],
-    links: %{"GitHub" => "https://github.com/seanmor5/stream_elixir"}]
-  end
-
-
 end
