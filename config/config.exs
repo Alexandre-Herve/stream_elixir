@@ -30,7 +30,7 @@ use Mix.Config
 #   import_config "#{Mix.env}.exs"
 
 config :stream_elixir, 
-	API_SECRET: "9dvrascyau2pjndh77mycm2wam7vxvrtmfwtq2fn3ubuvnm7kmmv9wz8dscbsn82",
-	BASE_URL: "us-east-api.getstream.io/api/v1.0/",
-	API_KEY: "fd673z8568xs",
-	APP_ID: "27624"
+	API_SECRET: "YOUR-API-SECRET",
+	BASE_URL: "YOUR-BASE-URL",
+	API_KEY: "YOUR-API-KEY",
+	APP_ID: "YOUR-APP-ID"
